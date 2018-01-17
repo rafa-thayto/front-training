@@ -12,6 +12,7 @@
 }
 
 .cartao--some {
+	transform: translate(600px, -200px) rotate(900deg);
 	opacity: 0;
 	transition: 0.5s;
 }
