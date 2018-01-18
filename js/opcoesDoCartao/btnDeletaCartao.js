@@ -1,13 +1,13 @@
-// (IIFE)
+// (IIFE)()
 (function() {
 
   // Pega todos os elementos com a class 'opcoesDoCartao-remove'
-  const btn = document.querySelectorAll('.opcoesDoCartao-remove');
+  const btns = document.querySelectorAll('.opcoesDoCartao-remove');
   
-  // Adiciona o evento click em todos os btn
-  for(let i = 0; btn.length; i++) {
-    btn[i].addEventListener('click', function() {
-      const cartao = this.parentNode.parentNode;
+  // Adiciona o evento click em todos os buttons
+  for(let btn of btns) { // let i = 0; i < btns.length; i++
+    btn.addEventListener('click', function() {
+      const cartao = btn.parentNode.parentNode;
       
       cartao.classList.add('cartao--some');
       
@@ -16,12 +16,10 @@
       });
       
       // setTimeout(function() {
-        //   cartao.remove();
-        // }, 300);
+      //   cartao.remove();
+      // }, 300);
     });
   }
-  
-  
 
-})()
+})();
     

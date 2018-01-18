@@ -21,7 +21,7 @@ function mudaLayout() {
     mural.classList.toggle('mural--linha');
 }
 
-btnMudaLayout.classList.remove('no-js');x
+btnMudaLayout.classList.remove('no-js');
 // btnAjuda.classList.remove('no-js');
 // btnSync.classList.remove('no-js');
 // campoBusca.classList.remove('no-js');

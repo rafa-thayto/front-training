@@ -8,7 +8,7 @@
 	font-family: "Lucida Grande", "Helvetica", "Arial", sans-serif;
 	background: #EBEF40;
 	box-shadow: 1px 1px 1px rgba(0,0,0,.1);
-	transition: transform .2s ease-in;
+	transition: all .3s ease-in-out, border 0s;
 }
 
 .cartao--some {
@@ -74,4 +74,16 @@
         flex-basis: 6em;
     }
 
+}
+
+.opcoesDoCartao {
+	opacity: 0;
+	pointer-events: none;
+	transition: .5s ease-in-out;
+}
+
+.cartao--focado .opcoesDoCartao,
+.cartao:hover .opcoesDoCartao {
+	opacity: 1;
+	pointer-events: all;
 }
