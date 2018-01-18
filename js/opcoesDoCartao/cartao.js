@@ -25,10 +25,25 @@
             const $elementoAtual = event.target;
             const isLabel = $elementoAtual.classList.contains('opcoesDoCartao-tipo');
             
+            
             if(isLabel && (event.key === ' ' || event.key === 'Enter')) {
                 $elementoAtual.click();
             }
         });
+        
+        // Remove using delegate
+        $cartao.addEventListener('click', function(event) {
+            const $elementoAtual = event.target;
+            const isRemove = $elementoAtual.classList.contains('opcoesDoCartao-remove');
+
+            if(isRemove) {
+                $cartao.classList.add('cartao--some');
+                $cartao.addEventListener('transitionend', function() {
+                    $cartao.remove();
+                })
+            }
+        })
+
         
     }
 })();
