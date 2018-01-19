@@ -1,18 +1,35 @@
-;(function(criarCartao) {
-    
-    const $btnAjuda = document.querySelector('#btnAjuda');
-    $btnAjuda.classList.remove('no-js');
+; (function (criarCartao) {
 
+    const $btnAjuda = document.querySelector('#btnAjuda');
+
+
+    // Usuario
+    // Clica
+    // Ajuda aparece
+
+    // Dev
+    // Cadastrar um evento: Event Listener
     $btnAjuda.addEventListener('click', () => {
         const ajudas = [
-            {msg: 'ajuda1', cor: 'pink'},
-            {msg: 'ajuda2', cor: 'white'},
-            {msg: 'ajuda3', cor: 'lime'},
-            {msg: 'ajuda4', cor: 'cyan'},
-            {msg: 'ajuda5', cor: 'purple'}
-        ];
+            { msg: 'Voce pode add cartao', cor: 'pink' },
+            { msg: 'Remover cartao', cor: 'lime' },
+            { msg: 'Mudar a cor', cor: 'orange' },
+            { msg: 'Você pode arrumar a coluna', cor: 'silver' },
+            { msg: '"Acessivelzaodaporra"', cor: 'white' }
+        ]
 
         ajudas.reverse().forEach(ajuda => criarCartao(ajuda.msg, ajuda.cor));
-    });
-    
+
+        // Implementação do "forEach"
+        // function forEach(array, funcaoCallback) {
+        //     for(item of array) {
+        //         funcaoCallback(item)
+        //     }
+        // }
+    })
+
+
+
+    $btnAjuda.classList.remove('no-js')
+
 })(criarCartao);
