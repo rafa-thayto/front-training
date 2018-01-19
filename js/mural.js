@@ -55,6 +55,27 @@ function criarCartao(conteudo, cor = '#EBEF40') {
         $cartao.css('background', corNova);
         // }
     });
+    $cartao.on('keydown', function(event) {
+        const $elementoAtual = $(event.target);
+        const isLabel = $elementoAtual.addClass('opcoesDoCartao-tipo');
+        
+        if(isLabel && (event.key === ' ' || event.key === 'Enter')) {
+            $elementoAtual.click();
+        }
+    });
+        
+    // Remove using delegate
+    $cartao.on('click', '.opcoesDoCartao-remove',function(event) {
+        const $elementoAtual = $(event.target);
+
+        // if(isRemove) {
+            $cartao.addClass('cartao--some');
+            $cartao.on('transitionend', function() {
+                $cartao.remove();
+            })
+        // }
+    });
+    
 }
 
 window.criarCartao = criarCartao;
