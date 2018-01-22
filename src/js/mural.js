@@ -4,7 +4,7 @@
     let contador = document.querySelectorAll('.cartao').length;
 
     // Parametro padrao: Default parameters
-    function criarCartao(conteudo, cor = '') {
+    function criarCartao({conteudo, cor = ''}) {
         contador++;
         // console.log('Criar cartao em construção', conteudo)
 
@@ -17,6 +17,8 @@
         // $tagConteudo.classList.add('cartao-conteudo')
 
         // Criar elemento de forma sonhadora: Declarativa
+        listaCartoes.push({conteudo, cor: ''});
+        
         const $cartao = $(`
     <article id="cartao_${contador}" style="background: ${cor};" class="cartao" tabindex="0">
         <div class="opcoesDoCartao">
@@ -91,6 +93,37 @@
     }
 
     window.criarCartao = criarCartao;
+    window.listaCartoes = [];
+    
+    /* const xhr = new XMLHttpRequest();
+    const user = 'rafa'
+    
+    xhr.open('GET', `http://ceep.herokuapp.com/cartoes/carregar?usuario=${user}`);
+    xhr.send();
 
+    xhr.responseType = 'json';
+
+    xhr.addEventListener('load', function() {
+        // const textao = xhr.response;
+        // console.log(textao)
+
+        const ajudas = xhr.response.cartoes
+
+        ajudas.reverse().forEach(ajuda => criarCartao(ajuda));
+
+    }); */
+
+    $.ajax({
+        url: 'http://ceep.herokuapp.com/cartoes/carregar',
+        method: 'GETs',
+        dataType: 'jsonp',
+        data: {
+            usuario: 'rafa'
+        },
+        success: function(resposta) {
+            const ajudas = resposta.cartoes;
+            ajudas.reverse().forEach(ajuda => criarCartao(ajuda));
+        }
+    });
 
 })(jQuery);

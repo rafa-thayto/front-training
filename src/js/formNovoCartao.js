@@ -31,7 +31,7 @@
                 $msgErro.remove();
             })
         } else {
-            criarCartao(conteudo);
+            criarCartao({conteudo});
         }
         $campoConteudo.value = '';
     });
